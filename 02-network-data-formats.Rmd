@@ -486,8 +486,8 @@ We can define a simple function in R to calculate Jaccard similarity coefficient
 
 ```{r}
 jaccard <- function(a, b) {
-  intersection <- length(which((a-b) == 0))
-  union <- length(a) + length(b) - intersection
+  intersection <- length(which((a & b) == 1))
+  union <- length(which(a == 1)) + length(which(b == 1)) - intersection
   return(intersection / union)
 }
 ```
